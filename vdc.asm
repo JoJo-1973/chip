@@ -1,6 +1,6 @@
-﻿; Video Display Controller (VDC)
-;
-; Opzioni: C128_DCR = 1         Aggiunge il supporto per il registro extra usato nella versione del chip installata sul C128DCR
+; Video Display Controller (VDC)
+
+; Opzioni: __C128_DCR = 1         Aggiunge il supporto per il registro extra usato nella versione del chip installata sul C128DCR
 
 VDC               = $D600       ; Indirizzo di base del chip VDC
 
@@ -46,7 +46,7 @@ VDCDEB            = 34          ; Posizione iniziale blanking orizzontale
 VDCDEE            = 35          ; Posizione finale blanking orizzontale
 VDCDRM            = 36          ; Numero di cicli di rinfresco memoria per linea di scansione
 
-!ifdef C128_DCR {
+!ifdef __C128_DCR {
   VDCSYN          = 37          ; Polarità dei sincronismi orizzontale e verticale
 }
 

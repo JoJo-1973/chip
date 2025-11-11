@@ -1,6 +1,6 @@
 ; Video Interface Chip II (VIC-II)
-;
-; Opzioni: C128_C64_MODE = 1    Aggiunge il supporto per i registri extra usati nella versione del chip installata sul C128
+
+; Opzioni: __C128_C64_MODE = 1    Aggiunge il supporto per i registri extra usati nella versione del chip installata sul C128
 
 VIC               = $D000       ; Indirizzo base del chip VIC-II
 
@@ -52,7 +52,7 @@ SP5COL            = VIC+$2C     ; Colore dello sprite #5
 SP6COL            = VIC+$2D     ; Colore dello sprite #6
 SP7COL            = VIC+$2E     ; Colore dello sprite #7
 
-!ifdef C128_C64_MODE {
+!ifdef __C128_C64_MODE {
   XSCAN           = VIC+$2F     ; Registro di scansione dei tasti supplementari
   CLKRATE         = VIC+$30     ; Registro di controllo della frequenza di clock
 }
@@ -85,7 +85,3 @@ ECM_BG3           = 4           ; Colore di sfondo #3
 
 ; Variabili utente
 BGCOL             = TEMP_1      ; Registro utente: seleziona il colore di sfondo da applicare all'output su schermo quando il modo colore esteso è attivo
-
-
-
-!zone

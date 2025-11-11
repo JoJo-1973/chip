@@ -1,8 +1,5 @@
 ; Sound Interface Device (SID)
 
-!ifndef __SID__ {
-__SID__           = 1
-
 SID               = $D400       ; Indirizzo di base del chip SID
 
 FRELO1            = SID+$00     ; Controllo frequenza voce #1 (byte basso)
@@ -34,5 +31,3 @@ POTX              = SID+$19     ; Posizione paddle #1 (o #3)
 POTY              = SID+$1A     ; Posizione paddle #2 (o #4)
 RANDOM            = SID+$1B     ; Uscita oscillatore #3 / generatore di numeri casuali
 ENV3              = SID+$1C     ; Uscita generatore di inviluppo #3
-
-}

@@ -1,8 +1,5 @@
 ; Complex Interface Adapter
 
-!ifndef __CIA__ {
-__CIA__           = 1
-
 ; Complex Interface Adapter (CIA) #1
 CIA_1             = $DC00       ; Indirizzo di base del chip CIA #1
 
@@ -42,5 +39,3 @@ CI2SDR            = CIA_2+$0C   ; Porta dati seriale
 CI2ICR            = CIA_2+$0D   ; Registro di controllo interrupt
 CI2CRA            = CIA_2+$0E   ; Registro di controllo A
 CI2CRB            = CIA_2+$0F   ; Registro di controllo B
-
-}

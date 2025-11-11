@@ -1,8 +1,5 @@
 ; RAM Expansion Controller (REC)
 
-!ifndef __REC__ {
-__REC__           = 1
-
 REC               = $DF00       ; Indirizzo di base del chip REC
 
 DMAST             = REC+$00     ; Registro di stato del chip REC
@@ -16,5 +13,3 @@ DMADAL            = REC+$07     ; Numero di byte da trasferire (byte basso)
 DMADAH            = REC+$08     ; Numero di byte da trasferire (byte alto)
 DMASUM            = REC+$09     ; Registro di controllo delle interruzioni
 DMAVER            = REC+$0A     ; Registro di controllo degli indirizzamenti
-
-}
