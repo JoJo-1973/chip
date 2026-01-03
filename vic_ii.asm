@@ -77,7 +77,7 @@ VIC_LIGHT_GREY    = 15          ; Codice VIC del colore grigio chiaro
 
 VIC_TRANSPARENT   = $FF         ; Valore fittizio usato per indicare che il registro colore non va alterato
 
-; Codici PETSCII per la selezione del colore di sfondo nella stampa  in Extended Color Mode
+; Codici PETSCII per la selezione del colore di sfondo nella stampa in Extended Color Mode
 ECM_BG0           = 1           ; Colore di sfondo #0
 ECM_BG1           = 2           ; Colore di sfondo #1
 ECM_BG2           = 3           ; Colore di sfondo #2
