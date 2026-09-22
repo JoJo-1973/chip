@@ -90,4 +90,4 @@ ECM_BG2           = 3           ; Colore di sfondo #2
 ECM_BG3           = 4           ; Colore di sfondo #3
 
 ; Variabili utente
-__BGCOL           = TEMP_1      ; Registro utente: seleziona il colore di sfondo da applicare all'output su schermo quando il modo colore esteso è attivo
+__BGCOL           = UNUSED      ; Registro utente: seleziona il colore di sfondo da applicare all'output su schermo quando il modo colore esteso è attivo
