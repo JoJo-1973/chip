@@ -75,6 +75,15 @@ VIC_LIGHT_GREEN   = 13          ; Codice VIC del colore verde chiaro
 VIC_LIGHT_BLUE    = 14          ; Codice VIC del colore azzurro
 VIC_LIGHT_GREY    = 15          ; Codice VIC del colore grigio chiaro
 
+VIC_MC_BLACK      = 0+8         ; Codice VIC del colore nero (colore primario dei caratteri in modalità multicolore)
+VIC_MC_WHITE      = 1+8         ; Codice VIC del colore bianco (colore primario dei caratteri in modalità multicolore)
+VIC_MC_RED        = 2+8         ; Codice VIC del colore rosso (colore primario dei caratteri in modalità multicolore)
+VIC_MC_CYAN       = 3+8         ; Codice VIC del colore ciano (colore primario dei caratteri in modalità multicolore)
+VIC_MC_PURPLE     = 4+8         ; Codice VIC del colore viola (colore primario dei caratteri in modalità multicolore)
+VIC_MC_GREEN      = 5+8         ; Codice VIC del colore verde (colore primario dei caratteri in modalità multicolore)
+VIC_MC_BLUE       = 6+8         ; Codice VIC del colore blu (colore primario dei caratteri in modalità multicolore)
+VIC_MC_YELLOW     = 7+8         ; Codice VIC del colore giallo (colore primario dei caratteri in modalità multicolore)
+
 VIC_TRANSPARENT   = $FF         ; Valore fittizio usato per indicare che il registro colore non va alterato
 
 ; Codici colore per la selezione del colore di sfondo nella stampa in Extended Color Mode
