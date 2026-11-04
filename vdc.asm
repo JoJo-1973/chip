@@ -54,7 +54,7 @@ VDCDEB              = 34        ; Posizione iniziale blanking orizzontale
 VDCDEE              = 35        ; Posizione finale blanking orizzontale
 VDCDRM              = 36        ; Numero di cicli di rinfresco memoria per linea di scansione
 
-!if (__C128_DCR = 1) {          ; Registro extra del C128DCR
+!if (__C128_DCR = 1) {          ; Registro extra del C128DCR.
   VDCSYN            = 37        ; Polarità dei sincronismi orizzontale e verticale
 }
 
