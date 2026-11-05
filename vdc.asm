@@ -1,6 +1,6 @@
 ; ==============================================================================
 ; FILE:           vdc.asm
-; PROGETTO:       Libreria Chip (chip.c64)
+; PROGETTO:       Libreria di Sistema (chip.c64)
 ; TARGET:         ACME Assembler / MOS 8563/8568 VDC (Commodore 128)
 ; DESCRIZIONE:    Registri e codici colore del Video Display Controller (VDC).
 ;                 Con __C128_DCR = 1 aggiunge il supporto per il registro extra

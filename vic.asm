@@ -1,6 +1,6 @@
 ; ==============================================================================
 ; FILE:           vic.asm
-; PROGETTO:       Libreria Chip (chip.c64)
+; PROGETTO:       Libreria di Sistema (chip.c64)
 ; TARGET:         ACME Assembler / MOS 6560/6561 VIC (Commodore VIC-20)
 ; DESCRIZIONE:    Registri e codici colore del chip VIC.
 ; ==============================================================================

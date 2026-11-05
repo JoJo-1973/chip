@@ -1,6 +1,6 @@
 ; ==============================================================================
 ; FILE:           sid.asm
-; PROGETTO:       Libreria Chip (chip.c64)
+; PROGETTO:       Libreria di Sistema (chip.c64)
 ; TARGET:         ACME Assembler / MOS 6581/8580 SID (Commodore 64 / C128)
 ; DESCRIZIONE:    Registri del Sound Interface Device (SID).
 ; ==============================================================================

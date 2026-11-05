@@ -1,6 +1,6 @@
 ; ==============================================================================
 ; FILE:           rec.asm
-; PROGETTO:       Libreria Chip (chip.c64)
+; PROGETTO:       Libreria di Sistema (chip.c64)
 ; TARGET:         ACME Assembler / MOS 8726 REC (Commodore 64 / C128)
 ; DESCRIZIONE:    Registri del RAM Expansion Controller (REC).
 ; ==============================================================================

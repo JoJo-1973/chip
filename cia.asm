@@ -1,6 +1,6 @@
 ; ==============================================================================
 ; FILE:           cia.asm
-; PROGETTO:       Libreria Chip (chip.c64)
+; PROGETTO:       Libreria di Sistema (chip.c64)
 ; TARGET:         ACME Assembler / MOS 6526 CIA (Commodore 64 / C128)
 ; DESCRIZIONE:    Registri dei due chip CIA.
 ; ==============================================================================

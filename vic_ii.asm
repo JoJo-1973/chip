@@ -1,6 +1,6 @@
 ; ==============================================================================
 ; FILE:           vic_ii.asm
-; PROGETTO:       Libreria Chip (chip.c64)
+; PROGETTO:       Libreria di Sistema (chip.c64)
 ; TARGET:         ACME Assembler / MOS 6567/6569 VIC-II (Commodore 64 / C128)
 ; DESCRIZIONE:    Registri e codici colore del chip VIC-II. Con
 ;                 __C128_C64_MODE = 1 aggiunge il supporto per i registri extra
