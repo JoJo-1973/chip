@@ -106,12 +106,3 @@ VIC_BG0             = $00       ; Colore di sfondo #0
 VIC_BG1             = $01       ; Colore di sfondo #1
 VIC_BG2             = $02       ; Colore di sfondo #2
 VIC_BG3             = $03       ; Colore di sfondo #3
-
-; ------------------------------------------------------------------------------
-; Codici PETSCII per la selezione del colore di sfondo nella stampa in modo ECM
-; ------------------------------------------------------------------------------
-
-ECM_BG0             = $01       ; Colore di sfondo #0
-ECM_BG1             = $02       ; Colore di sfondo #1
-ECM_BG2             = $03       ; Colore di sfondo #2
-ECM_BG3             = $04       ; Colore di sfondo #3
