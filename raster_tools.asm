@@ -75,9 +75,9 @@
 ;                       __VIC_MODEL, CIAICR, CI2ICR, VICIRQ, IRQMSK,
 ;                       R6510 (se __DISABLE_KERNAL = 1)
 ; Dipendenze Esterne:   <c64/symbols.asm>
+;                       <chip/6510_tools.asm>
 ;                       <chip/cia.asm>
 ;                       <chip/vic_ii.asm>
-;                       <system/6510_tools.asm>
 ;                       <system/standard.asm>
 ; ==============================================================================
 !macro m_Init_Raster_System {

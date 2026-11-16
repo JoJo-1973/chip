@@ -1,6 +1,6 @@
 ; ==============================================================================
 ; FILE:           6510_tools.asm
-; PROGETTO:       Libreria di Sistema (system.c64)
+; PROGETTO:       Libreria di Sistema (chip.c64)
 ; TARGET:         ACME Assembler / MOS 6510 (Commodore 64)
 ; DESCRIZIONE:    Macro per la configurazione dei banchi di memoria del 6510.
 ; CONTENUTO:      m_Disable_BASIC   Disabilita la ROM del BASIC

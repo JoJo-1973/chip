@@ -537,7 +537,7 @@
 ; Registri Modificati:  .A, .X, .Y, .P (Negative, Zero, Carry), INDEX, INDEX2,
 ;                       R6510, CIAICR
 ; Dipendenze Esterne:   <c64/symbols.asm>
-;                       <system/6510_tools.asm>
+;                       <chip/6510_tools.asm>
 ; ==============================================================================
 !if (__USE_VIC_COPY_CHARGEN = 1) {
   !zone VIC_Copy_Chargen
