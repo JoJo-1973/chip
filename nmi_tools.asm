@@ -1,6 +1,6 @@
 ; ==============================================================================
 ; FILE:           nmi_tools.asm
-; PROGETTO:       Libreria di Sistema (system.c64)
+; PROGETTO:       Libreria di Sistema (chip.c64)
 ; TARGET:         ACME Assembler / MOS 6510 (Commodore 64)
 ; DESCRIZIONE:    Utilità per la gestione delle interruzioni non mascherabili.
 ; CONTENUTO:      NMI_HIBASE    Resetta HIBASE dopo RUN/STOP + RESTORE
