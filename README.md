@@ -1,6 +1,6 @@
 # chip
 
-Simboli e utilità dei chip del Commodore 64, del C128 e del VIC-20: indirizzi dei registri e codici colore di CIA, REC, SID, VDC, VIC e VIC-II, configurazione dei banchi di memoria del 6510, interruzioni NMI e di raster, modi grafici del VIC-II. La libreria `chip` fa parte della Libreria di Sistema (progetto `chip.c64`) ed è scritta in assembly 6510 per C64Studio (sintassi ACME).
+Simboli e utilità dei chip del Commodore 64, del C128 e del VIC-20: indirizzi dei registri e codici colore di CIA, REC, SID, VDC, VIC e VIC-II, configurazione dei banchi di memoria del 6510, interruzioni NMI e di raster, modi grafici del VIC-II. La libreria `chip` fa parte della Libreria di Sistema (progetto `chip.c64`) ed è scritta in assembly 6510 per C64Studio (sintassi ACME). I moduli `cia.asm`, `rec.asm`, `sid.asm`, `vdc.asm`, `vic.asm` e `vic_ii.asm` contengono solo simboli: fanno fede i commenti dei sorgenti.
 
 Questo documento deriva dai sorgenti. Per ogni dettaglio fanno fede i contratti d'interfaccia nelle intestazioni delle macro e delle subroutine.
 
