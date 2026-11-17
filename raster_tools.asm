@@ -81,94 +81,91 @@
 ;                       <system/standard.asm>
 ; ==============================================================================
 !macro m_Init_Raster_System {
-  !zone Init_Raster_System
 
-    ; Gira a vuoto finché il raster non ritorna
-    ; nell'intervallo 0-255.
-    .Loop_Wait_Top:
-      bit SCROLY                          ; REPEAT
+  ; Gira a vuoto finché il raster non ritorna
+  ; nell'intervallo 0-255.
+  .Loop_Wait_Top:
+    bit SCROLY                            ; REPEAT
 
-    .Loop_Check_Top:
-      bmi .Loop_Wait_Top                  ; REPEAT UNTIL: il raster è nell'intervallo 0-255
+  .Loop_Check_Top:
+    bmi .Loop_Wait_Top                    ; REPEAT UNTIL: il raster è nell'intervallo 0-255
 
-      sei                                 ; Disabilita le interruzioni.
+    sei                                   ; Disabilita le interruzioni.
 
-    ; A questo punto gira a vuoto finché il raster non entra
-    ; nell'intervallo 256-???.
-    .Loop_Wait_Line_261:
-      bit SCROLY                          ; REPEAT
+  ; A questo punto gira a vuoto finché il raster non entra
+  ; nell'intervallo 256-???.
+  .Loop_Wait_Line_261:
+    bit SCROLY                            ; REPEAT
 
-    .Loop_Check_Line_261:
-      bpl .Loop_Wait_Line_261             ; REPEAT UNTIL: il raster è nell'intervallo 256-???
+  .Loop_Check_Line_261:
+    bpl .Loop_Wait_Line_261               ; REPEAT UNTIL: il raster è nell'intervallo 256-???
 
-      ; Ora si può continuare a girare a vuoto finché non si è
-      ; raggiunta la linea 261 = 256 + 5, che è l'ultima linea
-      ; comune a tutte le versioni esistenti del VIC_II (Old NTSC =
-      ; 0-261, New NTSC = 0-262, PAL = 0-311).
+    ; Ora si può continuare a girare a vuoto finché non si è
+    ; raggiunta la linea 261 = 256 + 5, che è l'ultima linea
+    ; comune a tutte le versioni esistenti del VIC_II (Old NTSC =
+    ; 0-261, New NTSC = 0-262, PAL = 0-311).
 
-      lda #<261
+    lda #<261
 
-    .Loop_Spin_261:
-      cmp RASTER                          ; REPEAT
+  .Loop_Spin_261:
+    cmp RASTER                            ; REPEAT
 
-    .Loop_Check_261:
-      bne .Loop_Spin_261                  ; REPEAT UNTIL: il raster ha raggiunto la linea 261
+  .Loop_Check_261:
+    bne .Loop_Spin_261                    ; REPEAT UNTIL: il raster ha raggiunto la linea 261
 
-    .Check_Line_262:
-      +m_Delay_5n1 ".X", 19               ; Non appena entrati nella linea 261, facciamo passare
+  .Check_Line_262:
+    +m_Delay_5n1 ".X", 19                 ; Non appena entrati nella linea 261, facciamo passare
                                           ; 96 cicli in modo da essere sicuri di essere ben entrati
                                           ; nella linea successiva.
 
-      ; Se il contatore è ancora maggiore di 256 vuol dire che siamo
-      ; ancora al fondo dello schermo, e l'identificazione non è
-      ; ancora completa.
-      bit SCROLY
-      bmi .Else_If_Line_263               ; IF: il contatore è tornato all'inizio dello schermo
+    ; Se il contatore è ancora maggiore di 256 vuol dire che siamo
+    ; ancora al fondo dello schermo, e l'identificazione non è
+    ; ancora completa.
+    bit SCROLY
+    bmi .Else_If_Line_263                 ; IF: il contatore è tornato all'inizio dello schermo
 
-    .Old_NTSC:
-      ldy #%01000000                      ; Altrimenti siamo ritornati all'inizio dello schermo e siamo
+  .Old_NTSC:
+    ldy #%01000000                        ; Altrimenti siamo ritornati all'inizio dello schermo e siamo
                                           ; sicuri di aver identificato la versione "Old NTSC".
-      bne .Exit_M_INIT_RASTER_SYSTEM
+    bne .Exit_M_INIT_RASTER_SYSTEM
 
-    .Else_If_Line_263:
-      +m_Delay_5n1 ".X", 19               ; Facciamo passare altri 96 cicli e ripetiamo il test.
+  .Else_If_Line_263:
+    +m_Delay_5n1 ".X", 19                 ; Facciamo passare altri 96 cicli e ripetiamo il test.
 
-      ; Se il contatore è ancora maggiore di 256 allora non ci sono
-      ; dubbi: il chip VIC-II è in versione "PAL", altrimenti non
-      ; può che essere in versione "New NTSC".
-      bit SCROLY
-      bmi .Else_PAL                       ; ELSE IF: il contatore è tornato all'inizio dello schermo
+    ; Se il contatore è ancora maggiore di 256 allora non ci sono
+    ; dubbi: il chip VIC-II è in versione "PAL", altrimenti non
+    ; può che essere in versione "New NTSC".
+    bit SCROLY
+    bmi .Else_PAL                         ; ELSE IF: il contatore è tornato all'inizio dello schermo
 
-    .New_NTSC:
-      ldy #%11000000
-      bne .Exit_M_INIT_RASTER_SYSTEM
+  .New_NTSC:
+    ldy #%11000000
+    bne .Exit_M_INIT_RASTER_SYSTEM
 
-    .Else_PAL:
-      ldy #%00000000                      ; ELSE
+  .Else_PAL:
+    ldy #%00000000                        ; ELSE
 
-    .Exit_M_INIT_RASTER_SYSTEM:
-      sty __VIC_MODEL                     ; Memorizza il risultato, riabilita le interruzioni ed esci.
+  .Exit_M_INIT_RASTER_SYSTEM:
+    sty __VIC_MODEL                       ; Memorizza il risultato, riabilita le interruzioni ed esci.
 
-      !if (__DISABLE_KERNAL = 1) {
-        +m_Disable_Kernal                 ; Disabilita le interruzioni e la ROM del Kernal.
-      }
+    !if (__DISABLE_KERNAL = 1) {
+      +m_Disable_Kernal                   ; Disabilita le interruzioni e la ROM del Kernal.
+    }
 
-      lda #%01111111                      ; Disabilita tutte le sorgenti di interruzioni provenienti dai
+    lda #%01111111                        ; Disabilita tutte le sorgenti di interruzioni provenienti dai
                                           ; chip CIA.
-      sta CIAICR                          ; ATTENZIONE: disabilitare le interruzioni del CIA #1
+    sta CIAICR                            ; ATTENZIONE: disabilitare le interruzioni del CIA #1
                                           ; implica che
-      sta CI2ICR                          ; la scansione della tastiera diventi responsabilità
+    sta CI2ICR                            ; la scansione della tastiera diventi responsabilità
                                           ; del programmatore!!!
 
-      lda CIAICR                          ; Neutralizza eventuali IRQ in sospeso richiesti da CIA #1.
-      lda CI2ICR                          ; Neutralizza eventuali IRQ in sospeso richiesti da CIA #2.
+    lda CIAICR                            ; Neutralizza eventuali IRQ in sospeso richiesti da CIA #1.
+    lda CI2ICR                            ; Neutralizza eventuali IRQ in sospeso richiesti da CIA #2.
 
-      asl VICIRQ                          ; Neutralizza eventuali IRQ in sospeso richiesti da VIC-II.
+    asl VICIRQ                            ; Neutralizza eventuali IRQ in sospeso richiesti da VIC-II.
 
-      lda #%00000001                      ; Imposta il raster come unica sorgente di interruzioni
-      sta IRQMSK                          ; provenienti dal VIC-II.
-
-  !zone
+    lda #%00000001                        ; Imposta il raster come unica sorgente di interruzioni
+    sta IRQMSK                            ; provenienti dal VIC-II.
 }
 
 ; ==============================================================================
@@ -347,14 +344,12 @@
 !macro m_Raster_Grip {
     bit+1 __VIC_MODEL                     ; 01-01 (+3)   Testa il modello di chip VIC-II: i bit #6 e #7 del contenuto
                                           ;              di __VIC_MODEL vengono copiati nei flag V e N.
-    bvs @Any_NTSC                         ; 04-04 (+3/2) Se il chip è una qualsiasi versione NTSC (V=1) il salto
+
+    bvs *+2                               ; 04-04 (+3/2) Se il chip è una qualsiasi versione NTSC (V=1) il salto
                                           ;              impiega 3 cicli, altrimenti 2.
 
-  @Any_NTSC:
-    bmi @New_NTSC                         ; 06-07 (+3/2) Se il chip è la versione "New NTSC" (N=1) il salto impiega
+    bmi *+2                               ; 06-07 (+3/2) Se il chip è la versione "New NTSC" (N=1) il salto impiega
                                           ;              3 cicli, altrimenti 2.
-
-  @New_NTSC:
 }
 
 ; ==============================================================================
