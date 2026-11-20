@@ -39,8 +39,8 @@
 ; * riquadro si toglie.                                          *
 ; ****************************************************************
 
-!source "6510_tools.asm", once
-!source "../system/standard.asm", once
+!source <chip/6510_tools.asm>, once
+!source <system/standard.asm>, once
 
 ; ==============================================================================
 ; MACRO: m_Init_Raster_System

@@ -24,8 +24,8 @@
 ; REQUISITI ZP:   Nessuno
 ; ==============================================================================
 
-!source "6510_tools.asm", once
-!source "../system/branch.asm", once
+!source <chip/6510_tools.asm>, once
+!source <system/branch.asm>, once
 
 ; ==============================================================================
 ; MACRO: m_VIC_Bitmap_On
