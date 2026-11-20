@@ -265,6 +265,8 @@ $C0 = New NTSC  65 cicli per linea
 
 La macro `m_Raster_Grip` fa uso di questa informazione per iniettare nel codice 1 o 2 cicli extra di temporizzazione in base alla versione rilevata del chip VIC-II.
 
+La tecnica di identificazione del chip VIC-II è di Bumbershoot, adattata in formato ACME. Codice originale: <https://bumbershootsoft.wordpress.com/2015/11/20/distinguishing-vic-ii-models/>
+
 | Voce | Contenuto |
 |---|---|
 | Input | Nessuno |
@@ -339,6 +341,8 @@ Macro di supporto per il settaggio del registro `RASTER` del chip VIC-II. La mac
 ### m_Raster_Grip
 
 Macro per la sincronizzazione del raster in maniera indipendente dall'hardware: siccome le 3 versioni esistenti del chip VIC-II (PAL, Old NTSC e New NTSC) producono una linea di raster in 63, 64 e 65 cicli rispettivamente, è necessario che il codice di sincronizzazione consumi 1 o 2 cicli di ritardo in più qualora l'hardware lo imponga. È pertanto obbligatorio che questa macro venga eseguita solo dopo l'esecuzione della macro `m_Init_Raster_System` che si occuperà dell'identificazione del chip VIC-II. La macro consuma 7 cicli su hardware PAL, 8 cicli su hardware Old NTSC e 9 cicli su hardware New NTSC. Nei calcoli di temporizzazione il programmatore dovrà sempre assumere che la linea di raster venga disegnata in 63 cicli (PAL) e che `m_Raster_Grip` duri 7 cicli: l'implementazione interna garantirà la coerenza dei calcoli in caso di hardware NTSC.
+
+La tecnica è di Bumbershoot, adattata in formato ACME. Codice originale: <https://bumbershootsoft.wordpress.com/2015/12/13/raster-grip/>
 
 | Voce | Contenuto |
 |---|---|

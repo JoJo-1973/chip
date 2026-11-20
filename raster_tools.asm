@@ -18,7 +18,8 @@
 ;                 m_Start_Stable_IRQ    Avvia una catena di IRQ stabili
 ;                 m_Enter_Stable_IRQ    Entra in un gestore IRQ stabile
 ;                 m_Next_Stable_IRQ     Prepara il prossimo IRQ stabile, esce
-; DIPENDENZE:     Nessuna
+; DIPENDENZE:     <chip/6510_tools.asm>
+;                 <system/standard.asm>
 ; REQUISITI ZP:   __VIC_MODEL
 ; ==============================================================================
 
@@ -37,6 +38,9 @@
 ; * Dove: nelle note d'uso del file (HDR-17). A lavoro finito il *
 ; * riquadro si toglie.                                          *
 ; ****************************************************************
+
+!source "6510_tools.asm", once
+!source "../system/standard.asm", once
 
 ; ==============================================================================
 ; MACRO: m_Init_Raster_System
@@ -59,6 +63,10 @@
 ;               La macro m_Raster_Grip fa uso di questa informazione per
 ;               iniettare nel codice 1 o 2 cicli extra di temporizzazione in
 ;               base alla versione rilevata del chip VIC-II.
+;
+;               La tecnica di identificazione del chip VIC-II è di Bumbershoot,
+;               adattata in formato ACME. Codice originale:
+;               https://bumbershootsoft.wordpress.com/2015/11/20/distinguishing-vic-ii-models/
 ;
 ; Input:
 ;   - Nessuno
@@ -328,6 +336,10 @@
 ;               linea di raster venga disegnata in 63 cicli (PAL) e che
 ;               m_Raster_Grip duri 7 cicli: l'implementazione interna garantirà
 ;               la coerenza dei calcoli in caso di hardware NTSC.
+;
+;               La tecnica è di Bumbershoot, adattata in formato ACME.
+;               Codice originale:
+;               https://bumbershootsoft.wordpress.com/2015/12/13/raster-grip/
 ;
 ; Input:
 ;   - __VIC_MODEL (1 byte, ZP) : Modello VIC-II (vedi m_Init_Raster_System)

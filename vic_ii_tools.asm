@@ -19,9 +19,13 @@
 ;                 COMPUTE_CELL_ADDRESS  Calcola l'indirizzo di una cella video
 ;                 GET_SCREEN_CELL       Legge una cella della memoria schermo
 ;                 GET_COLOR_CELL        Legge una cella della memoria colore
-; DIPENDENZE:     Nessuna
+; DIPENDENZE:     <chip/6510_tools.asm>
+;                 <system/branch.asm>
 ; REQUISITI ZP:   Nessuno
 ; ==============================================================================
+
+!source "6510_tools.asm", once
+!source "../system/branch.asm", once
 
 ; ==============================================================================
 ; MACRO: m_VIC_Bitmap_On
